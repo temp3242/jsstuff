@@ -5,7 +5,7 @@
   "main": "hello-world.js",
   "scripts": {
     "start": "node hello-world.js",
-     "test": "npm test.js"
+     "test": "node test.js"
   },
   "repository": {
     "type": "git",
