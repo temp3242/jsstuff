@@ -1,0 +1,19 @@
+{
+  "name": "hw",
+  "version": "0.0.0",
+  "description": "",
+  "main": "hello-world.js",
+  "scripts": {
+    "start": "node hello-world.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/temp3242/stuff.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/temp3242/stuff/issues"
+  },
+  "homepage": "https://github.com/temp3242/stuff#readme"
+}
