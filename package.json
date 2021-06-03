@@ -4,8 +4,8 @@
   "description": "",
   "main": "hello-world.js",
   "scripts": {
-    "start": "node hello-world.js"
-    "test": "npm start"
+    "start": "node hello-world.js",
+     "test": "npm start"
   },
   "repository": {
     "type": "git",
