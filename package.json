@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/temp3242/stuff.git"
+    "url": "git+https://github.com/jstemp3242/stuff.git"
   },
   "author": "",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/temp3242/stuff/issues"
+    "url": "https://github.com/jstemp3242/stuff/issues"
   },
-  "homepage": "https://github.com/temp3242/stuff#readme",
+  "homepage": "https://github.com/temp3242/jsstuff#readme",
   "dependencies": {
     "child_process": "^1.0.2",
     "ejs": "^3.1.6",
