@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
-    "test": "node node_modules/mocha --reporter list"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/temp3242/jsstuff#readme",
   "dependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "child_process": "^1.0.2",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
