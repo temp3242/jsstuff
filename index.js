@@ -1,17 +1,20 @@
-const express = require('express')
-const path = require('path')
-const PORT = process.env.PORT || 5000
+const express = require("express");
+const path = require("path");
+const PORT = process.env.PORT || 5000;
 
-if (PORT == 5000) {listenmsg = 'Listening on http://localhost:5000'}
-else {listenmsg = `Listening on ${ PORT }`}
+if (PORT == 5000) {
+  listenmsg = "Listening on http://localhost:5000";
+} else {
+  listenmsg = `Listening on ${PORT}`;
+}
 
-let app = express()
+let app = express();
 
-app.set('views', path.join(__dirname, 'views'))
-app.use('/favicon.ico', express.static('public/images/favicon.ico'));
-app.set('view engine', 'ejs')
-app.get('/', (req, res) => res.render('pages/index'))
-app.get('/svg', (req, res) => res.render('pages/svg'))
-app.listen(PORT, () => console.log(listenmsg))
- 
-module.exports = app
+app.set("views", path.join(__dirname, "views"));
+app.use("/favicon.ico", express.static("public/images/favicon.ico"));
+app.set("view engine", "ejs");
+app.get("/", (req, res) => res.render("pages/index"));
+app.get("/ham", (req, res) => res.render("pages/ham"));
+app.listen(PORT, () => console.log(listenmsg));
+
+module.exports = app;
