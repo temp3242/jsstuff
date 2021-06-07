@@ -2,7 +2,7 @@
   "name": "server",
   "version": "0.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "node .",
     "test": "mocha --exit"
