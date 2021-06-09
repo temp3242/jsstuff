@@ -14,7 +14,21 @@ app.set("views", path.join(__dirname, "views"));
 app.use("/favicon.ico", express.static("public/images/favicon.ico"));
 app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("pages/index"));
-app.get("/ham", (req, res) => res.render("pages/ham"));
+app.get("/ham", (req, res) => {
+  (async function () {
+    var data = await require("./getdxdata")();
+    callsign = data[0];
+    freq = data[1];
+    dest = data[2];
+    time = data[3];
+    res.render("pages/ham", {
+      name: callsign,
+      freq: freq,
+      dest: dest,
+      time: time,
+    });
+  })();
+});
 app.listen(PORT, () => console.log(listenmsg));
 
 module.exports = app;
