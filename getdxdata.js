@@ -27,7 +27,6 @@ async function makeSynchronousRequest() {
     let response_body = await http_promise;
     let dom = new jsdom(response_body);
     callsign[0] = dom.window.document.getElementsByTagName("td")[0].textContent;
-    console.log(callsign[0])
     callsign[1] = dom.window.document.getElementsByTagName("td")[1].textContent;
     callsign[2] = dom.window.document.getElementsByTagName("td")[2].textContent;
     callsign[3] = dom.window.document.getElementsByTagName("td")[4].textContent;
