@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node .",
     "test": "mocha --exit",
-    "build": "webpack"
+    "build": "webpack",
+    "heroku-postbuild": "webpack"
   },
   "repository": {
     "type": "git",
