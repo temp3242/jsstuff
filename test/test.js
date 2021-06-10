@@ -15,3 +15,12 @@ describe('GET to "server"', () => {
             })
     })
 })
+describe('test parsing', () => {
+    it('should return some data', (done) => {
+        async () => {
+            var data = await require('../getdxdata')()
+            expect(data[0]).to.not.be.undefined; 
+        }
+        done();
+    })
+})
