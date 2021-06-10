@@ -5,7 +5,7 @@ var data = [];
 
 module.exports = function getData() {
   var resultdata = "";
-  http.get("http://dxlite.g7vjr.org/", (res) => {
+  http.get("https://dxlite.g7vjr.org/", (res) => {
     res.on("data", (rawData) => {
       resultdata += rawData;
     });
