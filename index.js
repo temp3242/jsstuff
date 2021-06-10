@@ -17,15 +17,11 @@ app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
   (async function () {
     var data = await require("./getdxdata")();
-    callsign = data[0];
-    freq = data[1];
-    dest = data[2];
-    time = data[3];
     res.render("pages/ham", {
-      name: callsign,
-      freq: freq,
-      dest: dest,
-      time: time,
+      name: data[0],
+      freq: data[1],
+      dest: data[2],
+      time: data[3],
     });
   })();
 });
