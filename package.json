@@ -20,8 +20,6 @@
   },
   "homepage": "https://github.com/temp3242/jsstuff#readme",
   "dependencies": {
-    "chai": "^4.3.4",
-    "chai-http": "^4.3.0",
     "child_process": "^1.0.2",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
@@ -31,14 +29,14 @@
     "minimatch": "^3.0.4",
     "path": "^0.12.7",
     "tape": "^5.2.2",
-    "views": "^0.0.0",
-    "webpack": "^5.38.1",
-    "webpack-externals": "^0.0.1",
-    "webpack-node-externals": "^3.0.0",
-    "xml2js": "^0.4.23"
+    "views": "^0.0.0"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "mocha": "^8.4.0",
+    "webpack": "^5.38.1",
+    "webpack-node-externals": "^3.0.0",
     "webpack-cli": "^4.7.2"
   }
 }
