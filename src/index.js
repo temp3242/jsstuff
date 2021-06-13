@@ -7,13 +7,13 @@ if (PORT == 5000) {
 } else {
   listenmsg = `Listening on ${PORT}`;
 }
+var app = express();
 
- express()
- .set("views", path.join(__dirname, "../views"))
- .use("/favicon.ico", express.static("public/images/favicon.ico"))
- .set("view engine", "ejs")
- .get("/", (req, res) => res.render("pages/index"))
- .get("/ham", (req, res) => {
+app.set("views", path.join(__dirname, "../views"))
+app.use("/favicon.ico", express.static("public/images/favicon.ico"))
+app.set("view engine", "ejs")
+app.get("/", (req, res) => res.render("pages/index"))
+app.get("/ham", (req, res) => {
    (async function () {
      var data = await require("../getdxdata")();
      res.render("pages/ham", {
@@ -24,6 +24,6 @@ if (PORT == 5000) {
      });
    })();
  })
- .listen(PORT, () => console.log(listenmsg))
+ app.listen(PORT, () => console.log(listenmsg))
 
-module.exports = express
+module.exports = app;

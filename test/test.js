@@ -1,26 +1,17 @@
 const chai = require('chai')
 const chaiHttp = require('chai-http')
-const server = require('../src/index')
-const should = chai.should()
+const expect = chai.expect;
 
 chai.use(chaiHttp)
 
 describe('GET to "server"', () => {
     it('should return a 200(ok)', (done) => {
-        chai.request(server)
+        server = require('../src/index')
+        chai.request('http://localhost:5000')
             .get('/')
             .end((err, res) => {
-                res.should.have.status(200)
-            done();    
+                expect(res).to.have.status(200)
+                done();
             })
-    })
-})
-describe('test parsing', () => {
-    it('should return some data', (done) => {
-        async () => {
-            var data = await require('../getdxdata')()
-            expect(data[0]).to.not.be.undefined; 
-        }
-        done();
     })
 })
