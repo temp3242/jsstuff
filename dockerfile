@@ -7,8 +7,6 @@ COPY node_modules ./node_modules
 COPY views ./views
 COPY public ./public
 
-ENV PORT=8080
-
-EXPOSE 8080
+ENV PORT=$PORT
 
 CMD [ "node", "./dist/bundle.js" ]
