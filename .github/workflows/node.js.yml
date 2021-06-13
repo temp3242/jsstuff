@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  deploy:
 
     runs-on: ubuntu-latest
 
@@ -17,11 +17,9 @@ jobs:
         node-version: 16.x  
     - run: npm ci
     - run: npm test
-    - run: npm run build
-    - run: npm prune --production
-    - run: curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b $HOME/bin
-    - run: $HOME/bin/node-prune
+    - run: npm run build && npm prune --production 
+    - run: curl -sf https://gobinaries.com/github.com/tj/node-prune@v1.2.0 | PREFIX=. sh && node-prune
     - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:login
-    - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:push web -a docked19
-    - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:release web -a docked19
+    - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:push web -a ${{secrets.HEROKU_APP}}
+    - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:release web -a ${{secrets.HEROKU_APP}}
 
