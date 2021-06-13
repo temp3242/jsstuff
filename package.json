@@ -4,10 +4,8 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "start": "node .",
     "test": "mocha --exit",
-    "build": "webpack",
-    "heroku-postbuild": "webpack"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
