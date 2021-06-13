@@ -18,7 +18,7 @@ jobs:
     - run: npm ci
     - run: npm test
     - run: npm run build && npm prune --production 
-    - run: curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b . && node-prune
+    - run: curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b . && ./node-prune
     - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:login
     - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:push web -a ${{secrets.HEROKU_APP}}
     - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:release web -a ${{secrets.HEROKU_APP}}
