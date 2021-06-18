@@ -9,4 +9,4 @@ COPY public ./public
 
 ENV PORT=$PORT
 
-CMD [ "node", "./dist/bundle.js" ]
+CMD [ "node", "./dist/main.js" ]
