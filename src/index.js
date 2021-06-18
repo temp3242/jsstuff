@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 5000;
 
+
 if (PORT == 5000) {
   listenmsg = "Listening on http://localhost:5000";
 } else {
@@ -9,21 +10,21 @@ if (PORT == 5000) {
 }
 var app = express();
 
-app.set("views", path.join(__dirname, "../views"))
-app.use("/favicon.ico", express.static("public/images/favicon.ico"))
-app.set("view engine", "ejs")
-app.get("/", (req, res) => res.render("pages/index"))
+app.set("views", path.join(__dirname, "../views"));
+app.use(express.static('public'))
+app.use("/favicon.ico", express.static('public/images/favicon.ico'));
+app.set("view engine", "ejs");
+app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
-   (async function () {
-     var data = await require("../getdxdata")();
-     res.render("pages/ham", {
-       name: data[0],
-       freq: data[1],
-       dest: data[2],
-       time: data[3],
-     });
-   })();
- })
- app.listen(PORT, () => console.log(listenmsg))
+  var data = require("../getdxdata")();
+  res.render("pages/ham", {
+    name: data[0],
+    freq: data[1],
+    dest: data[2],
+    time: data[3],
+  })
+});
+app.get("/threed", (req, res) => res.render("pages/threed"))
+app.listen(PORT, () => console.log(listenmsg));
 
 module.exports = app;
