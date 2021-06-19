@@ -23,15 +23,3 @@ const client = {
 }
 
 module.exports = [server, client]
-
-
-/*module.exports = {
-    entry: {
-        main:path.join(__dirname, 'src/index.js'),
-        '3d':{import:'./src/threed.js', filename:'../public/js/threed.js'}
-    },
-    mode: 'production',
-    externals: [nodeExternals()],
-    plugins: [new webpack.IgnorePlugin(/canvas/)],
-    target:'node'
-}*/

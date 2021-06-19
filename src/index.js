@@ -16,7 +16,7 @@ app.use("/favicon.ico", express.static('public/images/favicon.ico'));
 app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
-  var data = require("../getdxdata")();
+  var data = require("./getdxdata")();
   res.render("pages/ham", {
     name: data[0],
     freq: data[1],
