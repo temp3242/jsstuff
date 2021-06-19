@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <style>
     h1 {text-align:center;}
     solar {width:615px;height:418px;position:fixed;top:118%;bottom:0%;left:0%;right:0;margin:auto;}
   </style>
 
   <head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>Ham Radio Stuff</title>
     <h1>Ham Radio Stuff</h1>   
   </head>
 
   <body>
 
-    <solar><img src="https://www.hamqsl.com/solar101vhfpic.php"></a></a></solar>
+    <solar><img src="https://www.hamqsl.com/solar101vhfpic.php" alt='Solar-Terrestrial Data' ></a></a></solar>
 
     <div><b>Most recent DX call from 
-      <a href="http://dxlite.g7vjr.org/" target="_blank">DXLite</a> (Since Page Load/Refresh):</b></div>
+      <a href="http://dxlite.g7vjr.org/" rel="noopener" target="_blank">DXLite</a> (Since Page Load/Refresh):</b></div>
       
     <br>
-    <div><b>Calling: </b><%=name%>  <a href="https://www.qrz.com/db/<%=name%>" target="_blank">(Lookup on QRZ.COM)</a>)</div>
+    <div><b>Calling: </b><%=name%>  <a href="https://www.qrz.com/db/<%=name%>" rel="noopener" target="_blank">(Lookup on QRZ.COM)</a>)</div>
     <br>
     <div><b>Freq: </b><%=freq%> Khz</div>
     <br>
-    <div><b>Dest: </b><%=dest%>  <a href="https://www.qrz.com/db/<%=dest%>" target="_blank">(Lookup on QRZ.COM</a>)</div>
+    <div><b>Dest: </b><%=dest%>  <a href="https://www.qrz.com/db/<%=dest%>" rel="noopener" target="_blank">(Lookup on QRZ.COM</a>)</div>
     <br>
     <div><b>Time: </b><%=time%></div>
     <br>
