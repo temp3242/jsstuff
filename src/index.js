@@ -13,7 +13,7 @@ var app = express();
 app.set("views", path.join(__dirname, "../views"));
 app.use(express.static('public'))
 app.use("/favicon.ico", express.static('public/images/favicon.ico'));
-app.get('*', function(req, res) {  
+app.get('http://*', function(req, res) {  
     res.redirect('https://' + req.headers.host + req.url);
     })
 app.set("view engine", "ejs");
