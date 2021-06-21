@@ -10,12 +10,16 @@ if (PORT === 5000) {
 }
 var app = express();
 
+app.enable('trust proxy')
 app.set("views", path.join(__dirname, "../views"));
 app.use(express.static('public'))
 app.use("/favicon.ico", express.static('public/images/favicon.ico'));
-app.get('http://*', function(req, res) {  
-    res.redirect('https://' + req.headers.host + req.url);
-    })
+app.use(function(request, response, next) {
+    if (process.env.NODE_ENV != 'development' && !request.secure) {
+       return response.redirect("https://" + request.headers.host + request.url);
+    }
+    next();
+})
 app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
