@@ -16,6 +16,7 @@ app.enable('trust proxy')
 app.set("views", join(process.cwd(), "/views"));
 app.use(express.static('public'))
 app.use("/favicon.ico", express.static('public/images/favicon.ico'));
+app.use("/robots.txt", express.static('public/robots.txt'));
 app.use(function(request, response, next) {
     if (process.env.NODE_ENV != 'development' && !request.secure) {
        return response.redirect("https://" + request.headers.host + request.url);
