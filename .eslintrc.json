@@ -12,5 +12,12 @@
     },
     "rules": { 
         "no-unused-vars":"warn"
-    }
+    },
+        "import/extensions": [".mjs", ".js"],
+        "import/resolver": {
+          "node": {
+            "extensions": [".mjs", ".js"]
+          }
+        }
+    
 }

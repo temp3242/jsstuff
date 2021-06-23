@@ -1,11 +1,12 @@
-let jsdom = require("jsdom").JSDOM;
-let http = require("https");
+import { JSDOM } from 'jsdom';
+import { get } from 'https';
 
+const jsdom = JSDOM
 var data = [];
 
-module.exports = function getData() {
+export default function Data() {
   var resultdata = "";
-  http.get("https://dxlite.g7vjr.org/", (res) => {
+  get("https://dxlite.g7vjr.org/", (res) => {
     res.on("data", (rawData) => {
       resultdata += rawData;
     });

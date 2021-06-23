@@ -1,10 +1,13 @@
-const nodeExternals = require('webpack-node-externals');
-const webpack = require('webpack')
-const path = require('path')
+import nodeExternals from 'webpack-node-externals'
+import webpack from 'webpack'
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const server = {
     target:'node',
-    entry:path.join(__dirname, 'src/index.js'),
+    entry: join(__dirname, 'src/index.js'),
     output: {
         filename: 'main.js'
     },
@@ -14,12 +17,12 @@ const server = {
 }
 
 const client = {
-    entry: path.join(__dirname, 'src/threed.js'),
+    entry: join(__dirname, 'src/threed.js'),
     output: {
         filename: '3d.js',
-        path: path.join(__dirname, '/public/js')
+        path: join(__dirname, '/public/js')
     },
-    mode: 'production'
+    mode: 'development'
 }
 
-module.exports = [server, client]
+export default [server, client]

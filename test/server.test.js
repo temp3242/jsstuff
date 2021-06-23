@@ -1,7 +1,9 @@
 /* eslint no-undef: 0*/
 
-const chai = require('chai')
-const chaiHttp = require('chai-http')
+import chai from 'chai';
+import chaiHttp  from 'chai-http';
+import app from '../src/index.js';
+
 const expect = chai.expect;
 
 chai.use(chaiHttp)
@@ -9,9 +11,6 @@ chai.use(chaiHttp)
 process.env.NODE_ENV = 'development'
 
 describe('Test Server', () => {
-    beforeEach(() => {
-        server = require('../src/index')
-    })
     it('/ should return 200', (done) => {
         chai.request('http://localhost:5000')
             .get('/')
