@@ -22,7 +22,8 @@ const client = {
         filename: '3d.js',
         path: join(__dirname, '/public/js')
     },
-    mode: 'development'
+    mode: 'development',
+    devtool: false
 }
 
 export default [server, client]
