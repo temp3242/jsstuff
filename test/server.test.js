@@ -1,4 +1,4 @@
-/* eslint no-undef: 0*/
+/* eslint no-undef: 0, "no-unused-vars": 0*/
 
 import chai from 'chai';
 import chaiHttp  from 'chai-http';

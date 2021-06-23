@@ -8,16 +8,11 @@
     "extends": "eslint:recommended",
     "ignorePatterns": ["**/public/js/*.js", "**/dist/*.js"],
     "parserOptions": {
-        "ecmaVersion": 12
+        "ecmaVersion": 12,
+        "sourceType": "module"
     },
     "rules": { 
         "no-unused-vars":"warn"
-    },
-        "import/extensions": [".mjs", ".js"],
-        "import/resolver": {
-          "node": {
-            "extensions": [".mjs", ".js"]
-          }
-        }
+    }
     
 }

@@ -1,6 +1,9 @@
 import express from 'express';
 import { join }from 'path';
 import data from './getdxdata.js'
+import hsp from 'heroku-self-ping';
+
+hsp("https://docked19.herokuapp.com");
 
 const PORT = process.env.PORT || 5000;
 var listenmsg = '';
