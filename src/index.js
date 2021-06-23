@@ -1,11 +1,9 @@
 import express from 'express';
-import {join, dirname} from 'path';
-import { fileURLToPath } from 'url';
+import { join }from 'path';
 import data from './getdxdata.js'
 
 const PORT = process.env.PORT || 5000;
 var listenmsg = '';
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 if (PORT === 5000) {
   listenmsg = "Listening on http://localhost:5000";
@@ -15,7 +13,7 @@ if (PORT === 5000) {
 var app = express();
 
 app.enable('trust proxy')
-app.set("views", join(__dirname, "../views"));
+app.set("views", join(process.cwd(), "/views"));
 app.use(express.static('public'))
 app.use("/favicon.ico", express.static('public/images/favicon.ico'));
 app.use(function(request, response, next) {
