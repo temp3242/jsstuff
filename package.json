@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "test": "mocha --exit -t 3000",
-    "coverage": "nyc mocha --exit -t 3000",
     "build": "webpack",
     "lint": "eslint ."
   },
@@ -22,12 +21,9 @@
   "homepage": "https://github.com/temp3242/jsstuff#readme",
   "dependencies": {
     "child_process": "^1.0.2",
-    "cookie-session": "^1.4.0",
-    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "got": "^11.8.2",
-    "heroku-self-ping": "^2.0.1",
     "is": "^3.3.0",
     "jsdom": "^16.6.0",
     "minimatch": "^3.0.4",
@@ -40,7 +36,6 @@
     "chai-http": "^4.3.0",
     "eslint": "^7.29.0",
     "mocha": "^8.4.0",
-    "nyc": "^15.1.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2",
     "webpack-node-externals": "^3.0.0"
