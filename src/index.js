@@ -1,6 +1,7 @@
 import express from 'express';
 import { join }from 'path';
-import data from './getdxdata.js'
+import data from './getdxdata.js';
+import weather from './weather.js';
 
 const PORT = process.env.PORT || 5000;
 var listenmsg = '';
@@ -27,15 +28,25 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
   data().then(result => {
-  res.render("pages/ham", {
-    name: result[0],
-    freq: result[1],
-    dest: result[2],
-    time: result[3],
+    res.render("pages/ham", {
+      name: result[0],
+      freq: result[1],
+      dest: result[2],
+      time: result[3],
+    })
   })
-})
 });
-app.get("/threed", (req, res) => res.render("pages/threed"))
+app.get("/weather", (req,res) => {
+  weather().then(result => { 
+    res.render("pages/weather", {
+      temp: result.main.temp,
+      feel: result.main.feels_like,
+      humi: result.main.humidity,
+      press: result.main.pressure
+    })
+  })
+});
+app.get("/threed", (req, res) => res.render("pages/threed"));
 app.listen(PORT, () => console.log(listenmsg));
 
 export default app;

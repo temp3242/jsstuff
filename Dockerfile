@@ -8,5 +8,6 @@ COPY views ./views
 COPY public ./public
 
 ENV PORT=$PORT
+ENV OPENWEATHER_KEY=$OPENWEATHER_KEY
 
 CMD [ "node", "./dist/main.js" ]
