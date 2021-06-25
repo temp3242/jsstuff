@@ -3,6 +3,7 @@
 import chai from 'chai';
 import chaiHttp  from 'chai-http';
 import app from '../src/index.js';
+import data from '../src/getdxdata.js';
 
 const expect = chai.expect;
 
@@ -34,5 +35,17 @@ describe('Test Server', () => {
                 expect(res).to.have.status(404);
                 done();
             })
+    })
+})
+
+describe('Test Parsing', () => {
+    it('should return a string', (done) => {
+        data().then(res => {
+            expect(res[0]).to.be.an('string');
+            expect(res[1]).to.be.an('string');
+            expect(res[2]).to.be.an('string');
+            expect(res[3]).to.be.an('string');
+            done();
+        })
     })
 })

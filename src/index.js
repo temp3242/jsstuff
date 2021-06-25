@@ -26,12 +26,14 @@ app.use(function(request, response, next) {
 app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
+  data().then(result => {
   res.render("pages/ham", {
-    name: data()[0],
-    freq: data()[1],
-    dest: data()[2],
-    time: data()[3],
+    name: result[0],
+    freq: result[1],
+    dest: result[2],
+    time: result[3],
   })
+})
 });
 app.get("/threed", (req, res) => res.render("pages/threed"))
 app.listen(PORT, () => console.log(listenmsg));

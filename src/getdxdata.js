@@ -2,24 +2,32 @@ import { JSDOM } from 'jsdom';
 import { get } from 'https';
 
 const jsdom = JSDOM
-var data = [];
+var data = ['', '', '', ''];
 
-export default function Data() {
+export default async function Data() {
+  return await new Promise((resolve, reject) => {
   var resultdata = "";
   get("https://dxlite.g7vjr.org/", (res) => {
     res.on("data", (rawData) => {
       resultdata += rawData;
     });
     res.on("end", () => {
+
       let dom = new jsdom(resultdata);
-      data[0] = dom.window.document.getElementsByTagName("td")[0].textContent;
-      data[1] = dom.window.document.getElementsByTagName("td")[1].textContent;
-      data[2] = dom.window.document.getElementsByTagName("td")[2].textContent;
-      data[3] = dom.window.document.getElementsByTagName("td")[4].textContent;
+      for (var i = 0; i < data.length; i++){
+        var a;
+        if(i === 3) a = i + 1;
+        else a = i;
+
+        data[i] = dom.window.document.getElementsByTagName("td")[a].textContent;
+      }
+      resolve(data)
+      return;
     });
     res.on("error", (error) => {
-      throw error;
+      reject(error)
+      return;
     });
   });
-  return data;
+})
 }
