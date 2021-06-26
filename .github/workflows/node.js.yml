@@ -8,8 +8,6 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
-    env:
-      OPENWEATHER_KEY: ${{secrets.OPENWEATHER_KEY}}
 
     steps:
     - uses: actions/checkout@v2
@@ -17,11 +15,23 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 16.x  
-    - run: npm ci
-    - run: npm test
-    - run: npm run build && npm prune --production 
-    - run: curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b . && ./node-prune
-    - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:login
-    - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:push web -a ${{secrets.HEROKU_APP}}
-    - run: HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:release web -a ${{secrets.HEROKU_APP}}
-
+    
+    - name: Install
+      run: npm ci
+      
+    - name: Test
+      run: npm test
+      env: 
+        OPENWEATHER_KEY: ${{secrets.OPENWEATHER_KEY}}
+      
+    - name: Build
+      run: >- 
+       npm run build && npm prune --production &&
+       curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b . &&
+       ./node-prune
+    
+    - name: Deploy
+      run: >-
+       HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:login &&
+       HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:push web -a ${{secrets.HEROKU_APP}} &&
+       HEROKU_API_KEY=${{secrets.HEROKU_API_KEY}} heroku container:release web -a ${{secrets.HEROKU_APP}}
