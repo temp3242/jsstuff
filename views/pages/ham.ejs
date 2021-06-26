@@ -6,10 +6,28 @@
       src: url(../fonts/OpenSans.woff2) format('woff2');
     }
 
+    #header-image {
+            background-image:linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)),
+            url("/images/ham.webp");
 
-    h1 {font-weight:700; text-align:center; color:rgb(55, 143, 146)}
+            height:25%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        #header-text {
+            text-align:center;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            color: rgb(0, 153, 128)
+        }
+
     img {max-width:100%;height:auto; margin:auto; position:fixed; bottom:0; left:0;right:0;}
-    body {font-family: 'Open Sans', sans-serif; font-weight:400}
+    body {height:100%; font-family: 'Open Sans', sans-serif; font-weight:400}
+    html {height:100%; }
   </style>
 
   <head>
@@ -23,9 +41,15 @@
 
   <body>
     <title>Ham Radio Stuff</title>
-    <h1>Ham Radio Stuff</h1>   
-    <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!"><img width=615 height=418 src="https://www.hamqsl.com/solar101vhfpic.php" alt='Solar-Terrestrial Data' ></a>
 
+    <div id='header-image'>
+      <div id='header-text'>
+          <h1>Ham Radio</h1>
+      </div>
+  </div>
+
+    <br>
+    <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!"><img width=615 height=418 src="https://www.hamqsl.com/solar101vhfpic.php" alt='Solar-Terrestrial Data' ></a>
     <div><b>Most recent DX call from 
       <a href="http://dxlite.g7vjr.org/" rel="noopener" target="_blank">DXLite</a> (Since Page Load/Refresh):</b></div>
       
