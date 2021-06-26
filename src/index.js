@@ -1,6 +1,6 @@
 import express from 'express';
 import { join }from 'path';
-import data from './getdxdata.js';
+import DX from './getdxdata.js';
 import weather from './weather.js';
 
 const PORT = process.env.PORT || 5000;
@@ -27,7 +27,7 @@ app.use(function(request, response, next) {
 app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
-  data().then(result => {
+  DX().then(result => {
     res.render("pages/ham", {
       name: result[0],
       freq: result[1],

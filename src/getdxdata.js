@@ -5,7 +5,7 @@ import { get } from 'https';
 
 const jsdom = JSDOM
 
-export default async function Data() {
+export default async function DX() {
   return await new Promise((resolve, reject) => {
     var data = ['', '', '', ''];
 
