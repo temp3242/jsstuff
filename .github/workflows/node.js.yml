@@ -8,6 +8,8 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
+    env:
+      OPENWEATHER_KEY: ${{secrets.OPENWEATHER_KEY}}
 
     steps:
     - uses: actions/checkout@v2
