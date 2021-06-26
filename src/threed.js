@@ -22,7 +22,7 @@ renderer.render(scene, camera);
 
 {
   const loader = new THREE.TextureLoader();
-  const texture = loader.load("../images/round_platform.jpg", () => {
+  const texture = loader.load("../images/round_platform.webp", () => {
     const rt = new THREE.WebGLCubeRenderTarget(texture.image.height);
     rt.fromEquirectangularTexture(renderer, texture);
     scene.background = rt.texture;
