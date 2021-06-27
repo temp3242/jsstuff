@@ -20,13 +20,12 @@ jobs:
       run: npm ci
       
     - name: Build
-      run: >- 
-       npm run build && npm prune --production &&
-       curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b . &&
-       ./node-prune
+      run: npm run build
 
     - name: Test
-      run: npm test
+      run: npm test && npm prune --production &&
+       curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b . &&
+       ./node-prune
       env: 
         OPENWEATHER_KEY: ${{secrets.OPENWEATHER_KEY}}
     
