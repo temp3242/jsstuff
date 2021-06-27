@@ -31,15 +31,16 @@
             color: rgb(0, 153, 128)
         }
     strong {font-family: 'Open Sans Bold'}
-    img {max-width:100%;height:auto; margin:auto; position:fixed; bottom:0; left:0;right:0;}
+    #solar {max-width:100%;height:auto; margin:auto; position:fixed; bottom:0; left:0;right:0;}
     body {height:100%; font-family: 'Open Sans', sans-serif; font-weight:400}
     html {height:100%; }
   </style>
 
+  
+
   <head>
     
     <meta charset='UTF-8' />
-    <link rel="preload" href="https://www.hamqsl.com/solar101vhfpic.php" as="image">
     <meta name="description" content="Data related to amateur radio." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   
@@ -55,7 +56,19 @@
   </div>
 
     <br>
-    <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!"><img width=615 height=418 src="https://www.hamqsl.com/solar101vhfpic.php" alt='Solar-Terrestrial Data' ></a>
+    <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!">
+      <script>
+       
+       var img = document.createElement("img")
+        img.id = "solar"
+        img.width = 615
+        img.height = 418
+        img.src = "https://www.hamqsl.com/solar101vhfpic.php?" + performance.now()
+        img.alt = "Solar-Terrestrial Data";
+
+        document.getElementsByTagName("a")[0].appendChild(img);
+      </script>
+    </a>
     <div><b>Most recent DX call from 
       <a href="http://dxlite.g7vjr.org/" rel="noopener" target="_blank">DXLite</a> (Since Page Load/Refresh):</b></div>
       
@@ -71,5 +84,4 @@
     <button onclick="location.href='/'" type="button">Back to Index</button>
 
   </body>
-
 </html>

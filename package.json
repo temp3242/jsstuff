@@ -5,6 +5,7 @@
   "main": "./src/index.js",
   "type": "module",
   "scripts": {
+    "postinstall": "webpack",
     "test": "mocha --exit -t 3000",
     "build": "webpack",
     "lint": "eslint ."
