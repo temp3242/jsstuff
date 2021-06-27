@@ -52,6 +52,16 @@ describe('Test Server', () => {
                 done();
             })
     })
+
+    it('/threed should return 200', (done) => {
+        chai.request('http://localhost:5000')
+        .get('/threed')
+        .end((err,res) => {
+            expect(res).to.have.status(200);
+            done();
+        })
+    })
+
     it('anything else should return 404', (done) => {
         chai.request('http://localhost:5000')
             .get('/foo/bar/baz')
