@@ -11,9 +11,11 @@ export default async function DX() {
 
     var resultdata = "";
     get("https://dxlite.g7vjr.org/", (res) => {
-      res.on("data", (rawData) => {
-        resultdata += rawData;
-      });
+
+      if(res.statusCode != 200) { reject(res.statusCode); return;}
+
+      res.on("data", (rawData) => { resultdata += rawData; });
+
       res.on("end", () => {
 
         let dom = new jsdom(resultdata);
@@ -24,13 +26,13 @@ export default async function DX() {
 
           data[i] = dom.window.document.getElementsByTagName("td")[a].textContent;
         }
+        
         resolve(data)
         return;
       });
-      res.on("error", (error) => {
-        reject(error)
-        return;
-      });
+    
     });
+  
   })
+
 }

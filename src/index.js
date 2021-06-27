@@ -34,19 +34,34 @@ app.get("/ham", (req, res) => {
       dest: result[2],
       time: result[3],
     })
-  })
+  },
+  () => { // If error (reject).
+    res.status(500)
+    res.render("pages/error")
+  }
+  )
 });
 app.get("/weather", (req,res) => {
-  weather().then(result => { 
+  weather().then(result => {
     res.render("pages/weather", {
       temp: result.main.temp,
       feel: result.main.feels_like,
       humi: result.main.humidity,
       press: result.main.pressure
     })
-  })
+  },
+  () => { // If error (reject).
+    res.status(500)
+    res.render("pages/serverror")
+  }
+  )
 });
 app.get("/threed", (req, res) => res.render("pages/threed"));
+
+app.get('*', function(req, res){ //Not Found Redirect.
+  res.status(404);
+  res.render("pages/notfound");
+});
 app.listen(PORT, () => console.log(listenmsg));
 
 export default app;
