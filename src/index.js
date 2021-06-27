@@ -37,7 +37,7 @@ app.get("/ham", (req, res) => {
   },
   () => { // If error (reject).
     res.status(500)
-    res.render("pages/error")
+    res.render("pages/errors/serverror")
   }
   )
 });
@@ -52,7 +52,7 @@ app.get("/weather", (req,res) => {
   },
   () => { // If error (reject).
     res.status(500)
-    res.render("pages/serverror")
+    res.render("pages/errors/serverror")
   }
   )
 });
@@ -60,7 +60,7 @@ app.get("/threed", (req, res) => res.render("pages/threed"));
 
 app.get('*', function(req, res){ //Not Found Redirect.
   res.status(404);
-  res.render("pages/notfound");
+  res.render("pages/errors/notfound");
 });
 app.listen(PORT, () => console.log(listenmsg));
 

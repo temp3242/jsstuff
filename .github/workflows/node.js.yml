@@ -16,12 +16,9 @@ jobs:
       with:
         node-version: 16.x  
     
-    - name: Install
+    - name: Install & Build
       run: npm ci
       
-    - name: Build
-      run: npm run build
-
     - name: Test
       run: npm test && npm prune --production &&
        curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b . &&
