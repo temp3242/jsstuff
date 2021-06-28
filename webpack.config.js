@@ -1,13 +1,9 @@
 import nodeExternals from 'webpack-node-externals'
 import webpack from 'webpack'
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const server = {
     target:'node',
-    entry: join(__dirname, 'src/index.js'),
+    entry: `${process.cwd()}/src/index.js`,
     output: {
         filename: 'main.js'
     },
@@ -17,10 +13,10 @@ const server = {
 }
 
 const client = {
-    entry: join(__dirname, 'src/threed.js'),
+    entry: `${process.cwd()}/src/threed.js`,
     output: {
         filename: '3d.js',
-        path: join(__dirname, '/public/js')
+        path: process.cwd() + '/public/js'
     },
     mode: 'development',
     devtool: false

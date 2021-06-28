@@ -1,10 +1,13 @@
 import express from 'express';
-import { join }from 'path';
 import DX from './getdxdata.js';
 import weather from './weather.js';
+import crypto from 'crypto';
 
 const PORT = process.env.PORT || 5000;
 var listenmsg = '';
+
+const nonce = crypto.randomBytes(32).toString("base64");
+const csp = `script-src 'nonce-${nonce}' 'strict-dynamic' https:; object-src 'none'; base-uri 'none';`;
 
 if (PORT === 5000) {
   listenmsg = "Listening on http://localhost:5000";
@@ -14,11 +17,10 @@ if (PORT === 5000) {
 var app = express();
 
 app.enable('trust proxy')
-app.set("views", join(process.cwd(), "/views"));
 app.use(express.static('public'))
 app.use("/favicon.ico", express.static('public/images/favicon.ico'));
 app.use("/robots.txt", express.static('public/robots.txt'));
-app.use(function(request, response, next) {
+app.use((request, response, next) => {
     if (process.env.NODE_ENV != 'development' && !request.secure) {
        return response.redirect("https://" + request.headers.host + request.url);
     }
@@ -28,11 +30,13 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
   DX().then(result => {
+    res.set("Content-Security-Policy", csp)
     res.render("pages/ham", {
       name: result[0],
       freq: result[1],
       dest: result[2],
       time: result[3],
+      nonce: nonce
     })
   },
   () => { // If error (reject).
@@ -56,7 +60,11 @@ app.get("/weather", (req,res) => {
   }
   )
 });
-app.get("/threed", (req, res) => res.render("pages/threed"));
+app.get("/threed", (req, res) =>{
+
+  res.set("Content-Security-Policy", csp)
+  res.render("pages/threed", {nonce: nonce});
+})
 
 app.get('*', function(req, res){ //Not Found Redirect.
   res.status(404);

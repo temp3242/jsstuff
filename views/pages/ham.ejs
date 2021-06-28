@@ -4,7 +4,7 @@
   <head>
     
     <meta charset='UTF-8' />
-    <link rel="preload" href="/images/ham.webp" as="image" type="image/webp" crossorigin>
+    <link rel="preload" href="/images/ham.webp" as="image" type="image/webp">
     <link rel="stylesheet" href="/styles/ham.css">
     <meta name="description" content="Data related to amateur radio." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +22,7 @@
 
     <br>
     <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!">
-      <script>
+      <script nonce="<%=nonce%>">
        
        var img = document.createElement("img")
         img.id = "solar"
