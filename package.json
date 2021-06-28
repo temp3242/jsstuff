@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "jsstuff",
   "version": "0.0.0",
   "description": "",
   "main": "./src/index.js",
@@ -14,14 +14,13 @@
     "type": "git",
     "url": "git+https://github.com/temp3242/jsstuff.git"
   },
-  "author": "Arthur G",
+  "author": "Arthur <arthur3242.go@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/temp3242/jsstuff/issues"
   },
   "homepage": "https://github.com/temp3242/jsstuff#readme",
   "dependencies": {
-    "child_process": "^1.0.2",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "got": "^11.8.2",

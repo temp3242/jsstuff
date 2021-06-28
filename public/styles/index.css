@@ -11,10 +11,35 @@
     font-display:swap;
   }
   
-h1 {text-align:center; color:rgb(0, 88, 122);}
-#greet {text-align:center}
-#ham {position:absolute; bottom:50%; left:1%; right:0; margin:auto}
-#threed {position: absolute; bottom:45%; left:1%; right:0; margin:auto}
-#weather {position: absolute; bottom:40%; left:1%; right:0; margin:auto}
-img {position:absolute; bottom:35%; left:1%;}
-body {font-family: 'Open Sans', sans-serif; font-weight:400;}
+h1 {
+  text-align: center; 
+  color:rgb(0, 141, 197); 
+  border: solid teal 3px; 
+  border-radius: 30px;
+  background-color: rgb(75, 75, 75); 
+  padding: 5px; 
+  width: 300px;
+  position: absolute;
+  margin-top: 45px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#greet {
+  text-align: center;
+  position: absolute;
+  margin-top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#links {
+  position:absolute;
+  bottom:50%;
+  transform: translateY(50%);
+  margin-left: 5px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
