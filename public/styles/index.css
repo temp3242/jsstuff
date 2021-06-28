@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-weight:normal;
+    src: url(../fonts/OpenSans.woff2) format('woff2');
+    font-display:swap;
+  }
+@font-face {
+    font-family: 'Open Sans';
+    font-weight:bold;
+    src: url(../fonts/OpenSansBold.woff2) format('woff2');
+    font-display:swap;
+  }
+  
+h1 {text-align:center; color:rgb(0, 88, 122);}
+#greet {text-align:center}
+#ham {position:absolute; bottom:50%; left:1%; right:0; margin:auto}
+#threed {position: absolute; bottom:45%; left:1%; right:0; margin:auto}
+#weather {position: absolute; bottom:40%; left:1%; right:0; margin:auto}
+img {position:absolute; bottom:35%; left:1%;}
+body {font-family: 'Open Sans', sans-serif; font-weight:400;}

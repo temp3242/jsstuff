@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-weight:normal;
+    src: url(../fonts/OpenSans.woff2) format('woff2');
+    font-display:swap;
+  }
+@font-face {
+    font-family: 'Open Sans';
+    font-weight:bold;
+    src: url(../fonts/OpenSansBold.woff2) format('woff2');
+    font-display:swap;
+  }
+
+#header-image {
+
+    background-image:linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)),
+    url("/images/ham.webp");
+
+    height:25%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#header-text {
+    text-align:center;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 153, 128)
+}
+
+strong {font-family: 'Open Sans Bold'}
+#solar {max-width:100%;height:auto; margin:auto; position:fixed; bottom:0; left:0;right:0;}
+body {height:100%; font-family: 'Open Sans', sans-serif; font-weight:400}
+html {height:100%; }
