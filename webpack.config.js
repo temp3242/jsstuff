@@ -14,7 +14,7 @@ const client = {
     entry: `${process.cwd()}/src/threed.js`,
     output: {
         filename: '3d.js',
-        path: process.cwd() + '/public/js'
+        path: process.cwd() + '/public/js/3d'
     },
     mode: 'development',
     devtool: false

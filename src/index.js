@@ -1,5 +1,4 @@
 import express from 'express';
-import DX from './getdxdata.js';
 import weather from './weather.js';
 import crypto from 'crypto';
 
@@ -26,23 +25,9 @@ app.use((request, response, next) => {
 app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
-  DX().then(result => {
     const nonce = crypto.randomBytes(32).toString("base64");
     const csp = `script-src 'nonce-${nonce}' 'strict-dynamic' https:; object-src 'none'; base-uri 'none';`
-    res.set("Content-Security-Policy", csp)
-    res.render("pages/ham", {
-      name: result[0],
-      freq: result[1],
-      dest: result[2],
-      time: result[3],
-      nonce: nonce
-    })
-  },
-  () => { // If error (reject).
-    res.status(500)
-    res.render("pages/errors/serverror")
-  }
-  )
+    res.set("Content-Security-Policy", csp).render("pages/ham", {nonce: nonce})
 });
 app.get("/weather", (req,res) => {
   weather().then(result => {

@@ -4,7 +4,7 @@
   <head>
     
     <meta charset='UTF-8' />
-    <link rel="preload" href="/styles/ham.css" as="style" type="text/css">
+    <link rel="preload" href="/styles/ham.css" as="style">
     <link rel="stylesheet" href="/styles/ham.css">
     <meta name="description" content="Data related to amateur radio." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,23 +25,28 @@
       <img id=solar width=615 height=418 src='' alt="Solar-Terrestrial Data">
     </a>
 
-    <script nonce="<%=nonce%>">
-      document.getElementById("solar").src = "https://www.hamqsl.com/solar101vhfpic.php?" + performance.now()
-    </script>
-
     <div><b>Most recent DX call from 
-      <a href="http://dxlite.g7vjr.org/" rel="noopener" target="_blank">DXLite</a> (Since Page Load/Refresh):</b></div>
+      <a href="https://www.hamqth.com/" rel="noopener" target="_blank">HamQTH</a> (Refreshes every 15 seconds):</b></div>
       
     <br>
-    <div><b>Calling: </b><%=name%>  <a href="https://www.qrz.com/db/<%=name%>" rel="noopener" target="_blank">(Lookup on QRZ.COM)</a></div>
+    <div><b>Calling: </b><span id=call></span> <a id=qrzcall href="" rel="noopener" target="_blank">(See on QRZ.com)</a></div>
     <br>
-    <div><b>Freq: </b><%=freq%> Khz</div>
+    <div><b>Freq: </b><span id=freq></span></div>
     <br>
-    <div><b>Dest: </b><%=dest%>  <a href="https://www.qrz.com/db/<%=dest%>" rel="noopener" target="_blank">(Lookup on QRZ.COM)</a></div>
+    <div><b>Dest: </b><span id=dest></span> <a id=qrzdest href="" rel="noopener" target="_blank">(See on QRZ.com)</a></div>
     <br>
-    <div><b>Time: </b><%=time%></div>
+    <div><b>Time: </b><span id=time></span></div>
     <br>
-    <button onclick="location.href='/'" type="button">Back to Index</button>
+
+    
+    <script nonce="<%=nonce%>" src="/js/ham.js"></script>
+
+    <script nonce="<%=nonce%>">
+      var butt = document.createElement("button")
+      butt.onclick = function() {location.href='/'}
+      butt.innerHTML = "Back to Index"
+      document.body.appendChild(butt)
+    </script>
 
   </body>
 </html>

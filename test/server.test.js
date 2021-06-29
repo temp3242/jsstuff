@@ -3,7 +3,6 @@
 import chai from 'chai';
 import chaiHttp  from 'chai-http';
 import app from '../src/index.js';
-import DX from '../src/getdxdata.js';
 import weather from '../src/weather.js';
 
 const expect = chai.expect;
@@ -13,12 +12,6 @@ chai.use(chaiHttp)
 process.env.NODE_ENV = 'development'
 
 describe('Test Get Data', () => {
-    it('All values from DX should be strings', (done) => {
-        DX().then(res => {
-            res.forEach(value => expect(value).to.be.a('string'));
-            done();
-        })
-    })
     it('All values from weather should be numbers', (done) => {
         weather().then(res => {
             Object.values(res.main).forEach(value => expect(value).to.be.a('number'))
