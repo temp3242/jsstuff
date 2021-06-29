@@ -4,7 +4,7 @@
   <head>
     
     <meta charset='UTF-8' />
-    <link rel="preload" href="/images/ham.webp" as="image" type="image/webp">
+    <link rel="preload" href="/styles/ham.css" as="style" type="text/css">
     <link rel="stylesheet" href="/styles/ham.css">
     <meta name="description" content="Data related to amateur radio." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,18 +22,13 @@
 
     <br>
     <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!">
-      <script nonce="<%=nonce%>">
-       
-       var img = document.createElement("img")
-        img.id = "solar"
-        img.width = 615
-        img.height = 418
-        img.src = "https://www.hamqsl.com/solar101vhfpic.php?" + performance.now()
-        img.alt = "Solar-Terrestrial Data";
-
-        document.getElementsByTagName("a")[0].appendChild(img);
-      </script>
+      <img id=solar width=615 height=418 src='' alt="Solar-Terrestrial Data">
     </a>
+
+    <script nonce="<%=nonce%>">
+      document.getElementById("solar").src = "https://www.hamqsl.com/solar101vhfpic.php?" + performance.now()
+    </script>
+
     <div><b>Most recent DX call from 
       <a href="http://dxlite.g7vjr.org/" rel="noopener" target="_blank">DXLite</a> (Since Page Load/Refresh):</b></div>
       

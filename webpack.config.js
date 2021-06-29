@@ -1,5 +1,4 @@
 import nodeExternals from 'webpack-node-externals'
-import webpack from 'webpack'
 
 const server = {
     target:'node',
@@ -9,7 +8,6 @@ const server = {
     },
     mode: 'production',
     externals: [nodeExternals()],
-    plugins: [new webpack.IgnorePlugin(/canvas/)]
 }
 
 const client = {
