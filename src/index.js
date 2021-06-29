@@ -6,9 +6,6 @@ import crypto from 'crypto';
 const PORT = process.env.PORT || 5000;
 var listenmsg = '';
 
-const nonce = crypto.randomBytes(32).toString("base64");
-const csp = `script-src 'nonce-${nonce}' 'strict-dynamic' https:; object-src 'none'; base-uri 'none';`;
-
 if (PORT === 5000) {
   listenmsg = "Listening on http://localhost:5000";
 } else {
@@ -30,6 +27,8 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => res.render("pages/index"));
 app.get("/ham", (req, res) => {
   DX().then(result => {
+    const nonce = crypto.randomBytes(32).toString("base64");
+    const csp = `script-src 'nonce-${nonce}' 'strict-dynamic' https:; object-src 'none'; base-uri 'none';`
     res.set("Content-Security-Policy", csp)
     res.render("pages/ham", {
       name: result[0],
@@ -61,7 +60,8 @@ app.get("/weather", (req,res) => {
   )
 });
 app.get("/threed", (req, res) =>{
-
+  const nonce = crypto.randomBytes(32).toString("base64");
+  const csp = `script-src 'nonce-${nonce}' 'strict-dynamic' https:; object-src 'none'; base-uri 'none';`
   res.set("Content-Security-Policy", csp)
   res.render("pages/threed", {nonce: nonce});
 })
