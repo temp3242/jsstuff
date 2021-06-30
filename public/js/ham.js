@@ -19,7 +19,7 @@ function getDX() {
 }
 
 function getImg(){
-    document.getElementById("solar").src = "https://www.hamqsl.com/solar101vhfpic.php?image=random&bgcolor=orange&back=transparent"// + performance.now();
+    document.getElementById("solar").src = "https://www.hamqsl.com/solar101vhfpic.php?image=random"
 }
 
 getImg();
