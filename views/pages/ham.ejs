@@ -4,49 +4,44 @@
   <head>
     
     <meta charset='UTF-8' />
-    <link rel="preload" href="/styles/ham.css" as="style">
-    <link rel="stylesheet" href="/styles/ham.css">
-    <meta name="description" content="Data related to amateur radio." />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel=preload href=/styles/ham.css as=style>
+    <link rel=stylesheet href=/styles/ham.css>
+    <link rel=preload href=/fonts/OpenSans.woff2 as=font type=font/woff2>
+    <link rel=preload href=/fonts/OpenSansBold.woff2 as=font type=font/woff2>
+    <meta name=description content="Data related to amateur radio." />
+    <meta name=viewport content="width=device-width, initial-scale=1" />
   
   </head>
 
   <body>
     <title>Ham Radio Stuff</title>
 
-    <div id='header-image'>
-      <div id='header-text'>
+    <div id=header-image>
+      <div id=header-text>
           <h1>Ham Radio</h1>
       </div>
   </div>
 
     <br>
-    <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!">
+    <a href=https://www.hamqsl.com/solar.html title="Click to add Solar-Terrestrial Data to your website!">
       <img id=solar width=615 height=418 src='' alt="Solar-Terrestrial Data">
     </a>
 
     <div><b>Most recent DX call from 
-      <a href="https://www.hamqth.com/" rel="noopener" target="_blank">HamQTH</a> (Refreshes every 15 seconds):</b></div>
+      <a href=https://www.hamqth.com/dxcluster.php rel=noopener target=_blank>HamQTH</a> (Refreshes every 15 seconds):</b></div>
       
     <br>
-    <div><b>Calling: </b><span id=call></span> <a id=qrzcall href="" rel="noopener" target="_blank">(See on QRZ.com)</a></div>
+    <div><b>Calling: </b><span id=call></span> <a id=qrzcall href="" rel=noopener target=_blank>(See on QRZ.com)</a></div>
     <br>
     <div><b>Freq: </b><span id=freq></span></div>
     <br>
-    <div><b>Dest: </b><span id=dest></span> <a id=qrzdest href="" rel="noopener" target="_blank">(See on QRZ.com)</a></div>
+    <div><b>Dest: </b><span id=dest></span> <a id=qrzdest href="" rel=noopener target=_blank>(See on QRZ.com)</a></div>
     <br>
     <div><b>Time: </b><span id=time></span></div>
     <br>
 
     
-    <script nonce="<%=nonce%>" src="/js/ham.js"></script>
-
-    <script nonce="<%=nonce%>">
-      var butt = document.createElement("button")
-      butt.onclick = function() {location.href='/'}
-      butt.innerHTML = "Back to Index"
-      document.body.appendChild(butt)
-    </script>
+    <script nonce="<%=nonce%>" src=/js/ham.js></script>
 
   </body>
 </html>

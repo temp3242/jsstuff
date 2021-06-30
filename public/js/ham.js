@@ -19,7 +19,7 @@ function getDX() {
 }
 
 function getImg(){
-    document.getElementById("solar").src = "https://www.hamqsl.com/solar101vhfpic.php?" + performance.now();
+    document.getElementById("solar").src = "https://www.hamqsl.com/solar101vhfpic.php?image=random&bgcolor=orange&back=transparent"// + performance.now();
 }
 
 getImg();
@@ -27,3 +27,8 @@ getDX();
 
 setInterval(function(){ getDX() }, 15000);
 setInterval(function(){ getImg() },60000);
+
+var butt = document.createElement("button")
+butt.onclick = function() {location.href='/'}
+butt.innerHTML = "Back to Index";
+document.body.appendChild(butt);

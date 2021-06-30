@@ -46,7 +46,7 @@ app.get("/weather", (req,res) => {
 });
 app.get("/threed", (req, res) =>{
   const nonce = crypto.randomBytes(32).toString("base64");
-  const csp = `script-src 'nonce-${nonce}' 'strict-dynamic' https:; object-src 'none'; base-uri 'none';`
+  const csp = `script-src 'nonce-${nonce}' 'unsafe-inline'; 'strict-dynamic' https:; object-src 'none'; base-uri 'none';`
   res.set("Content-Security-Policy", csp)
   res.render("pages/threed", {nonce: nonce});
 })
