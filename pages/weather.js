@@ -21,7 +21,7 @@ export default function Weather() {
 
         <div className={style.data}>
          <br/>
-        <div><b>Weather at João Pessoa, BR (Refreshes every 15 minutes):</b></div>
+        <div><b>Weather at João Pessoa, BR (Refreshes every 10 minutes):</b></div>
         <br/>
         <div><b>Temp: </b><span id="temp"> </span></div>
         <br/>

@@ -1,7 +1,6 @@
 function getWeather() {
     fetch("/api/weather").then(res => {
         res.json().then(response => {
-            console.log(response.main)
 
             document.getElementById("temp").innerHTML = `${response.main.temp}°C`
             document.getElementById("feel").innerHTML = `${response.main.feels_like}°C`
@@ -13,4 +12,4 @@ function getWeather() {
 
 getWeather()
 
-setInterval(function(){ getWeather() }, 60000 * 15);
+setInterval(function(){ getWeather() }, 60000 * 10);
