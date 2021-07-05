@@ -1,17 +1,4 @@
-@font-face {
-    font-family: 'Open Sans';
-    font-weight:normal;
-    src: url(../fonts/OpenSans.woff2) format('woff2');
-    font-display:swap;
-  }
-@font-face {
-    font-family: 'Open Sans';
-    font-weight:bold;
-    src: url(../fonts/OpenSansBold.woff2) format('woff2');
-    font-display:swap;
-  }
-  
-h1 {
+.heading {
   text-align: center; 
   color:rgb(0, 157, 219); 
   border: solid teal 3px; 
@@ -34,12 +21,11 @@ h1 {
 }
 
 #links {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
   position:absolute;
   bottom:50%;
   transform: translateY(50%);
   margin-left: 5px;
-}
-
-body {
-  font-family: 'Open Sans', sans-serif;
 }

@@ -1,0 +1,19 @@
+#headerimage {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/images/weather.webp");
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:163.5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#headertext {
+    color: rgb(196, 196, 196)
+}
+
+.data {text-align:center;}

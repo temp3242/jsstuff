@@ -1,0 +1,37 @@
+#headercontainer{
+  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0, 0.75));
+  
+  height: 163.5px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
+  overflow: hidden;
+}
+
+#headerimage {
+  z-index: -1;
+}
+
+#headertext{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00b99a;
+  z-index: 1;
+}
+#container {
+  display: flex;
+  justify-content: center;
+
+}
+
+#item {
+  position: absolute;
+  bottom: 0;
+}

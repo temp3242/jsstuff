@@ -1,13 +1,15 @@
-FROM node:16-alpine
+FROM node:alpine
 
 WORKDIR /app
 
-COPY dist ./dist
-COPY node_modules ./node_modules
-COPY views ./views
-COPY public ./public
+COPY ./ ./
 
-ENV PORT=$PORT
+RUN npm install
+
+RUN npm run build
+
 ENV OPENWEATHER_KEY=$OPENWEATHER_KEY
 
-CMD [ "node", "./dist/main.js" ]
+ENV PORT=$PORT
+
+CMD npm run start

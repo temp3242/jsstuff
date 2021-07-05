@@ -1,4 +1,4 @@
-name: Node.js Checks and Deploy
+name: Deploy
 
 on:
   push:
@@ -11,20 +11,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup Node v16.x
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16.x  
-    
-    - name: Install & Build
-      run: npm ci
-      
-    - name: Test
-      run: npm test && npm prune --production &&
-       curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b . &&
-       ./node-prune
-      env: 
-        OPENWEATHER_KEY: ${{secrets.OPENWEATHER_KEY}}
     
     - name: Deploy
       run: >-
